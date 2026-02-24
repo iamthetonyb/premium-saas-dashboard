@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Knowledge Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <circle cx="12" cy="12" r="8" stroke-dasharray="4 4"/>
+                    <line x1="12" y1="2" x2="12" y2="6"/>
+                    <line x1="12" y1="18" x2="12" y2="22"/>
+                    <line x1="2" y1="12" x2="6" y2="12"/>
+                    <line x1="18" y1="12" x2="22" y2="12"/>
+                </svg>
+                <span class="logo-text">ATLAS</span>
+            </div>
+            <div class="search-container">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="text" id="global-search" placeholder="Search knowledge base... (Cmd+K)" class="search-input">
+                <kbd class="shortcut-hint">⌘K</kbd>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="nav-btn" title="Notifications">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+                <span class="notification-badge">3</span>
+            </button>
+            <button class="nav-btn" title="Settings">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+            </button>
+            <div class="user-avatar">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Navigation</h3>
+                <ul class="nav-list">
+                    <li class="nav-item active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        <span>Dashboard</span>
+                    </li>
+                    <li class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        <span>Documents</span>
+                    </li>
+                    <li class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                        <span>Knowledge Graph</span>
+                    </li>
+                    <li class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                            <polyline points="2 17 12 22 22 17"/>
+                            <polyline points="2 12 12 17 22 12"/>
+                        </svg>
+                        <span>Vectors</span>
+                    </li>
+                    <li class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                        <span>Semantic Ties</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Workspaces</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <span class="workspace-color" style="background: #6366f1;"></span>
+                        <span>Project Alpha</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="workspace-color" style="background: #8b5cf6;"></span>
+                        <span>Research Hub</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="workspace-color" style="background: #ec4899;"></span>
+                        <span>Data Pipeline</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Filters</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag active">All Nodes</span>
+                    <span class="filter-tag">Connected</span>
+                    <span class="filter-tag">Orphaned</span>
+                    <span class="filter-tag">Recent</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Total Nodes</span>
+                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <circle cx="12" cy="12" r="8"/>
+                        </svg>
+                    </div>
+                    <div class="stat-value">2,847</div>
+                    <div class="stat-change positive">+12.5% <span>this week</span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Semantic Connections</span>
+                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="18" cy="5" r="3"/>
+                            <circle cx="6" cy="12" r="3"/>
+                            <circle cx="18" cy="19" r="3"/>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                        </svg>
+                    </div>
+                    <div class="stat-value">18,392</div>
+                    <div class="stat-change positive">+8.2% <span>this week</span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Vector Dimensions</span>
+                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="20" x2="12" y2="10"/>
+                            <line x1="18" y1="20" x2="18" y2="4"/>
+                            <line x1="6" y1="20" x2="6" y2="16"/>
+                        </svg>
+                    </div>
+                    <div class="stat-value">1,536</div>
+                    <div class="stat-change neutral">0% <span>stable</span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Graph Clusters</span>
+                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <line x1="12" y1="2" x2="12" y2="8"/>
+                            <line x1="12" y1="16" x2="12" y2="22"/>
+                        </svg>
+                    </div>
+                    <div class="stat-value">47</div>
+                    <div class="stat-change positive">+3 <span>new clusters</span></div>
+                </div>
+            </div>
+
+            <!-- Graph Visualization Container -->
+            <div class="graph-container">
+                <div class="graph-header">
+                    <h2 class="graph-title">Knowledge Graph Visualization</h2>
+                    <div class="graph-controls">
+                        <button class="control-btn" id="zoom-in" title="Zoom In">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                                <line x1="11" y1="8" x2="11" y2="14"/>
+                                <line x1="8" y1="11" x2="14" y2="11"/>
+                            </svg>
+                        </button>
+                        <button class="control-btn" id="zoom-out" title="Zoom Out">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                                <line x1="8" y1="11" x2="14" y2="11"/>
+                            </svg>
+                        </button>
+                        <button class="control-btn" id="reset-view" title="Reset View">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="1 4 1 10 7 10"/>
+                                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                            </svg>
+                        </button>
+                        <button class="control-btn active" id="toggle-force" title="Toggle Force Layout">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <circle cx="6" cy="6" r="3"/>
+                                <circle cx="18" cy="6" r="3"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="18" r="3"/>
+                                <line x1="9" y1="9" x2="15" y2="15"/>
+                                <line x1="9" y1="15" x2="15" y2="9"/>
+                            </svg>
+                        </button>
+                        <button class="control-btn" id="toggle-edges" title="Toggle Edges">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="18" cy="5" r="3"/>
+                                <circle cx="6" cy="12" r="3"/>
+                                <circle cx="18" cy="19" r="3"/>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="graph-canvas-wrapper">
+                    <canvas id="graph-canvas"></canvas>
+                    <div class="graph-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #6366f1;"></span>
+                            <span>Core Concepts</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #8b5cf6;"></span>
+                            <span>Entities</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #ec4899;"></span>
+                            <span>Relationships</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #10b981;"></span>
+                            <span>Attributes</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #f59e0b;"></span>
+                            <span>Events</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vector & Semantic Details Panel -->
+            <div class="details-panel">
+                <div class="panel-tabs">
+                    <button class="panel-tab active" data-tab="vectors">Vector Embeddings</button>
+                    <button class="panel-tab" data-tab="semantic">Semantic Ties</button>
+                    <button class="panel-tab" data-tab="logic">Logic Graph</button>
+                </div>
+                <div class="panel-content">
+                    <div class="tab-content active" id="vectors-tab">
+                        <div class="vector-visualization">
+                            <canvas id="vector-canvas"></canvas>
+                        </div>
+                        <div class="vector-stats">
+                            <div class="vector-stat">
+                                <span class="vector-stat-label">Similarity Score</span>
+                                <div class="vector-stat-bar">
+                                    <div class="vector-stat-fill" style="width: 87%;"></div>
+                                </div>
+                                <span class="vector-stat-value">0.87</span>
+                            </div>
+                            <div class="vector-stat">
+                                <span class="vector-stat-label">Cosine Distance</span>
+                                <div class="vector-stat-bar">
+                                    <div class="vector-stat-fill" style="width: 23%;"></div>
+                                </div>
+                                <span class="vector-stat-value">0.23</span>
+                            </div>
+                            <div class="vector-stat">
+                                <span class="vector-stat-label">Euclidean Distance</span>
+                                <div class="vector-stat-bar">
+                                    <div class="vector-stat-fill" style="width: 45%;"></div>
+                                </div>
+                                <span class="vector-stat-value">1.45</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="semantic-tab">
+                        <div class="semantic-list">
+                            <div class="semantic-item">
+                                <div class="semantic-item-header">
+                                    <span class="semantic-type">is-a</span>
+                                    <span class="semantic-confidence">94%</span>
+                                </div>
+                                <div class="semantic-connection">
+                                    <span class="semantic-node">Machine Learning</span>
+                                    <svg class="semantic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"/>
+                                        <polyline points="12 5 19 12 12 19"/>
+                                    </svg>
+                                    <span class="semantic-node">Artificial Intelligence</span>
+                                </div>
+                            </div>
+                            <div class="semantic-item">
+                                <div class="semantic-item-header">
+                                    <span class="semantic-type">part-of</span>
+                                    <span class="semantic-confidence">89%</span>
+                                </div>
+                                <div class="semantic-connection">
+                                    <span class="semantic-node">Neural Network</span>
+                                    <svg class="semantic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"/>
+                                        <polyline points="12 5 19 12 12 19"/>
+                                    </svg>
+                                    <span class="semantic-node">Deep Learning</span>
+                                </div>
+                            </div>
+                            <div class="semantic-item">
+                                <div class="semantic-item-header">
+                                    <span class="semantic-type">related-to</span>
+                                    <span class="semantic-confidence">76%</span>
+                                </div>
+                                <div class="semantic-connection">
+                                    <span class="semantic-node">Data Science</span>
+                                    <svg class="semantic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"/>
+                                        <polyline points="12 5 19 12 12 19"/>
+                                    </svg>
+                                    <span class="semantic-node">Statistics</span>
+                                </div>
+                            </div>
+                            <div class="semantic-item">
+                                <div class="semantic-item-header">
+                                    <span class="semantic-type">causes</span>
+                                    <span class="semantic-confidence">82%</span>
+                                </div>
+                                <div class="semantic-connection">
+                                    <span class="semantic-node">Training Data</span>
+                                    <svg class="semantic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"/>
+                                        <polyline points="12 5 19 12 12 19"/>
+                                    </svg>
+                                    <span class="semantic-node">Model Accuracy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="logic-tab">
+                        <div class="logic-graph">
+                            <div class="logic-node">
+                                <div class="logic-node-content">
+                                    <span class="logic-node-type">IF</span>
+                                    <span class="logic-node-text">similarity > 0.8</span>
+                                </div>
+                            </div>
+                            <svg class="logic-connector" viewBox="0 0 100 50">
+                                <line x1="50" y1="0" x2="50" y2="50" stroke="var(--border-color)" stroke-width="2"/>
+                            </svg>
+                            <div class="logic-node">
+                                <div class="logic-node-content">
+                                    <span class="logic-node-type">THEN</span>
+                                    <span class="logic-node-text">create semantic link</span>
+                                </div>
+                            </div>
+                            <svg class="logic-connector" viewBox="0 0 100 50">
+                                <line x1="50" y1="0" x2="50" y2="50" stroke="var(--border-color)" stroke-width="2"/>
+                            </svg>
+                            <div class="logic-node">
+                                <div class="logic-node-content">
+                                    <span class="logic-node-type">ELSE</span>
+                                    <span class="logic-node-text">flag for review</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logic-rules">
+                            <h4 class="rules-title">Active Rules</h4>
+                            <div class="rule-item">
+                                <span class="rule-badge">R1</span>
+                                <span class="rule-text">Vector similarity threshold: 0.75</span>
+                                <span class="rule-status active">Active</span>
+                            </div>
+                            <div class="rule-item">
+                                <span class="rule-badge">R2</span>
+                                <span class="rule-text">Minimum confidence: 70%</span>
+                                <span class="rule-status active">Active</span>
+                            </div>
+                            <div class="rule-item">
+                                <span class="rule-badge">R3</span>
+                                <span class="rule-text">Auto-cluster enabled</span>
+                                <span class="rule-status active">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Node Detail Modal -->
+    <div class="modal-overlay" id="node-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-node-title">Node Details</h3>
+                <button class="modal-close" id="modal-close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Properties</h4>
+                    <div class="property-grid">
+                        <div class="property-item">
+                            <span class="property-label">ID</span>
+                            <span class="property-value" id="modal-node-id">--</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-label">Type</span>
+                            <span class="property-value" id="modal-node-type">--</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-label">Created</span>
+                            <span class="property-value" id="modal-node-created">--</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-label">Connections</span>
+                            <span class="property-value" id="modal-node-connections">--</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Vector Embedding</h4>
+                    <div class="vector-preview" id="modal-vector-preview">
+                        <div class="vector-bar" style="height: 60%;"></div>
+                        <div class="vector-bar" style="height: 80%;"></div>
+                        <div class="vector-bar" style="height: 45%;"></div>
+                        <div class="vector-bar" style="height: 90%;"></div>
+                        <div class="vector-bar" style="height: 30%;"></div>
+                        <div class="vector-bar" style="height: 75%;"></div>
+                        <div class="vector-bar" style="height: 55%;"></div>
+                        <div class="vector-bar" style="height: 85%;"></div>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Connected Nodes</h4>
+                    <div class="connected-nodes" id="modal-connected-nodes">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modal-edit">Edit Node</button>
+                <button class="btn btn-primary" id="modal-explore">Explore Connections</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
